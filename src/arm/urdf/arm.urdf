@@ -371,7 +371,7 @@
   </link>
   <joint
     name="l_arm_base_l_arm_link1"
-    type="fixed">
+    type="prismatic">
     <origin
       xyz="0 0 0"
       rpy="0 0 0" />
@@ -1110,4 +1110,48 @@
 
     <!-- rosrun teleop_twist_keyboard teleop_twist_keyboard.py -->
 </gazebo>
+
+<gazebo reference="base_link">
+<selfCollide>false</selfCollide>
+<gravity>0</gravity> 
+<kinematic>0</kinematic>
+</gazebo>
+
+<gazebo reference="l_arm_base">
+<gravity>0</gravity>
+<selfCollide>false</selfCollide>
+<kinematic>0</kinematic>
+</gazebo>
+
+<gazebo reference="l_arm_link_1">
+<gravity>0</gravity>
+<selfCollide>false</selfCollide>
+<kinematic>0</kinematic>
+</gazebo>
+<gazebo reference="l_arm_link_2">
+<selfCollide>false</selfCollide>
+<gravity>0</gravity>
+<kinematic>0</kinematic>
+</gazebo>
+<gazebo reference="l_arm_link_3">
+<selfCollide>false</selfCollide>
+<gravity>0</gravity>
+<kinematic>0</kinematic>
+</gazebo>
+<gazebo reference="gripper_base">
+<selfCollide>false</selfCollide>
+ <gravity>0</gravity>
+ <kinematic>0</kinematic>
+</gazebo>
+<gazebo reference="l_finger_l_gripper">
+<selfCollide>false</selfCollide>
+ <gravity>0</gravity>
+ <kinematic>0</kinematic>
+</gazebo>
+<gazebo reference="r_finger_l_gripper">
+<selfCollide>false</selfCollide>
+<gravity>0</gravity>
+<kinematic>0</kinematic>
+</gazebo>
+
 </robot>
