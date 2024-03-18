@@ -1,0 +1,1089 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="grape_harvester">
+  
+<link name="world"/>
+<joint name="base_joint" type="fixed">
+<parent link="world"/>
+<child link="base_link"/>
+<origin rpy="0 0 0" xyz="0.0 0.0 0.1"/>
+</joint>
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0967240490462767 -6.50785287934191E-06 0.570595021546874"
+        rpy="0 0 0" />
+      <mass
+        value="732.561419245809" />
+      <inertia
+        ixx="55.0439847447433"
+        ixy="0.00105467372527893"
+        ixz="-13.2136142377722"
+        iyy="215.138264753584"
+        iyz="0.00166435387234738"
+        izz="233.631575009062" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.847058823529412 0.847058823529412 0.847058823529412 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="l_wheel_front">
+    <inertial>
+      <origin
+        xyz="-2.55500666829223E-05 -0.00431559968288031 2.73318019217081E-05"
+        rpy="0 0 0" />
+      <mass
+        value="15.911327710551" />
+      <inertia
+        ixx="0.256653495251073"
+        ixy="3.3140724675575E-05"
+        ixz="3.06050778192663E-05"
+        iyy="0.446525377478014"
+        iyz="-3.54358257007561E-05"
+        izz="0.256649431563068" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/l_wheel_front.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.764705882352941 0.764705882352941 0.764705882352941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/l_wheel_front.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_l_wheel_front"
+    type="continuous">
+    <origin
+      xyz="0.860000000000001 0.52594220962433 0.2225"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="l_wheel_front" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-1000000"
+      upper="1000000"
+      effort="500000"
+      velocity="1000000" />
+  </joint>
+  <link
+    name="r_wheel_front">
+    <inertial>
+      <origin
+        xyz="-2.55500666830333E-05 0.0026266099414507 2.73318019217428E-05"
+        rpy="0 0 0" />
+      <mass
+        value="15.911327710551" />
+      <inertia
+        ixx="0.256653495251073"
+        ixy="3.31407246756975E-05"
+        ixz="3.06050778195992E-05"
+        iyy="0.446525377478014"
+        iyz="-3.54358257008335E-05"
+        izz="0.256649431563068" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/r_wheel_front.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/r_wheel_front.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_r_wheel_front"
+    type="revolute">
+    <origin
+      xyz="0.860000000000001 -0.524999999999999 0.2225"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="r_wheel_front" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1000000"
+      upper="1000000"
+      effort="50000"
+      velocity="50000" />
+  </joint>
+  <link
+    name="l_wheel_back">
+    <inertial>
+      <origin
+        xyz="-2.55500666831443E-05 -0.00337339005854942 2.73318019219163E-05"
+        rpy="0 0 0" />
+      <mass
+        value="15.911327710551" />
+      <inertia
+        ixx="0.256653495251073"
+        ixy="3.31407246756706E-05"
+        ixz="3.060507781945E-05"
+        iyy="0.446525377478015"
+        iyz="-3.54358257008435E-05"
+        izz="0.256649431563068" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/l_wheel_back.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/l_wheel_back.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_l_wheel_back"
+    type="revolute">
+    <origin
+      xyz="-0.86 0.525 0.2225"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="l_wheel_back" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-1000000"
+      upper="1000000"
+      effort="50000"
+      velocity="50000" />
+  </joint>
+  <link
+    name="r_wheel_back">
+    <inertial>
+      <origin
+        xyz="-2.55500666828112E-05 0.0026266099414507 2.73318019219232E-05"
+        rpy="0 0 0" />
+      <mass
+        value="15.911327710551" />
+      <inertia
+        ixx="0.256653495251073"
+        ixy="3.31407246756906E-05"
+        ixz="3.06050778196901E-05"
+        iyy="0.446525377478014"
+        iyz="-3.54358257007742E-05"
+        izz="0.256649431563068" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/r_wheel_back.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/r_wheel_back.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_r_wheel_back"
+    type="revolute">
+    <origin
+      xyz="-0.86 -0.524999999999999 0.2225"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="r_wheel_back" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1000000"
+      upper="1000000"
+      effort="50000"
+      velocity="50000" />
+  </joint>
+  <link
+    name="l_arm_base">
+    <inertial>
+      <origin
+        xyz="0.00256843341346769 -0.0158345747114657 0.414282618946152"
+        rpy="0 0 0" />
+      <mass
+        value="0.0001" />
+      <inertia
+        ixx="0.00001"
+        ixy="0.0001"
+        ixz="0.001"
+        iyy="0.00001"
+        iyz="0.0000000001"
+        izz="0.00001" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/l_arm_base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.564705882352941 0.564705882352941 0.564705882352941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/l_arm_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_l_arm_base"
+    type="fixed">
+    <origin
+      xyz="0.345503212092889 0.275067184842277 0.8625"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="l_arm_base" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="l_arm_link_1">
+    <inertial>
+      <origin
+        xyz="0.000125636870732693 0.0804188199429271 -0.0372240719211021"
+        rpy="0 0 0" />
+      <mass
+        value="0.00001" />
+      <inertia
+        ixx="0.0034290734895918"
+        ixy="1.44752336404464E-05"
+        ixz="2.09107970542603E-06"
+        iyy="0.000950241498545379"
+        iyz="7.33029796466367E-05"
+        izz="0.0039252957485201" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/l_arm_link_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.564705882352941 0.564705882352941 0.564705882352941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/l_arm_link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l_arm_base_l_arm_link1"
+    type="prismatic">
+    <origin
+      xyz="0 0 0.593759108516829"
+      rpy="0 0 0" />
+    <parent
+      link="l_arm_base" />
+    <child
+      link="l_arm_link_1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0.3"
+      upper="0.7"
+      effort="300"
+      velocity="3" />
+  </joint>
+  <link
+    name="l_arm_link_2">
+    <inertial>
+      <origin
+        xyz="-0.0854570113219302 0.0709105321317886 -0.0984483167347361"
+        rpy="0 0 0" />
+      <mass
+        value="0.000001" />
+      <inertia
+        ixx="0.00866799275524474"
+        ixy="0.00727661797303508"
+        ixz="-7.28447678409944E-05"
+        iyy="0.0113873692649047"
+        iyz="6.03025196983541E-05"
+        izz="0.0186444325786857" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/l_arm_link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.564705882352941 0.564705882352941 0.564705882352941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/l_arm_link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l_arm_link_1_l_arm_link_2"
+    type="revolute">
+    <origin
+      xyz="-2.38538024483481E-05 0.131932815157645 -0.00200000000005285"
+      rpy="0 0 0" />
+    <parent
+      link="l_arm_link_1" />
+    <child
+      link="l_arm_link_2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="300"
+      velocity="3" />
+  </joint>
+  <link
+    name="l_arm_link_3">
+    <inertial>
+      <origin
+        xyz="0.0699396065905298 -0.0737302141498409 -0.0926276756075906"
+        rpy="0 0 0" />
+      <mass
+        value="0.000001" />
+      <inertia
+        ixx="0.00546308340369261"
+        ixy="0.00380182327080884"
+        ixz="1.8574177541259E-05"
+        iyy="0.00506145717588312"
+        iyz="-1.95812221911354E-05"
+        izz="0.0100016298513614" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/l_arm_link_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.564705882352941 0.564705882352941 0.564705882352941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/l_arm_link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l_arm_link_2_l_arm_link_3"
+    type="revolute">
+    <origin
+      xyz="-0.16927333898573 0.140522370848582 -0.0629999999999309"
+      rpy="0 0 1.5707963267949" />
+    <parent
+      link="l_arm_link_2" />
+    <child
+      link="l_arm_link_3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="300"
+      velocity="3" />
+  </joint>
+  <link
+    name="gripper_base">
+    <inertial>
+      <origin
+        xyz="0.0417656890379301 -0.0440296352379507 -0.0818516657835081"
+        rpy="0 0 0" />
+      <mass
+        value="0.00001" />
+      <inertia
+        ixx="0.000158320167909366"
+        ixy="4.98951547405742E-05"
+        ixz="4.08521109394344E-06"
+        iyy="0.0001530507624686"
+        iyz="-4.3048628224785E-06"
+        izz="0.000264761402018064" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/gripper_base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.564705882352941 0.564705882352941 0.564705882352941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/gripper_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l_arm_link3_gripper_base"
+    type="revolute">
+    <origin
+      xyz="0.137641878611459 -0.145102423315937 -0.0720000000000072"
+      rpy="0 0 0" />
+    <parent
+      link="l_arm_link_3" />
+    <child
+      link="gripper_base" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="300"
+      velocity="3" />
+  </joint>
+  <link
+    name="r_finger_l_gripper">
+    <inertial>
+      <origin
+        xyz="-0.0253969129652247 0.0241461215019181 0.000850862451540646"
+        rpy="0 0 0" />
+      <mass
+        value="0.000001" />
+      <inertia
+        ixx="4.37396734706745E-06"
+        ixy="2.16963471246922E-06"
+        ixz="4.42617514527407E-10"
+        iyy="2.62421421445249E-06"
+        iyz="9.63789542250555E-15"
+        izz="6.67238241923964E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/r_finger_l_gripper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.898039215686275 0.8 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/r_finger_l_gripper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l_gripper_base_r_finger"
+    type="prismatic">
+    <origin
+      xyz="0.15154 -0.15976 -0.083309"
+      rpy="0 0 0.75902" />
+    <parent
+      link="gripper_base" />
+    <child
+      link="r_finger_l_gripper" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-0.1"
+      upper="0.1"
+      effort="300"
+      velocity="3" />
+  </joint>
+  <link
+    name="l_finger_l_gripper">
+    <inertial>
+      <origin
+        xyz="0.020192 0.017186 0.00040932"
+        rpy="0 0 0" />
+      <mass
+        value="0.00001" />
+      <inertia
+        ixx="5.3311E-06"
+        ixy="-2.1696E-06"
+        ixz="-5.2811E-14"
+        iyy="2.7276E-06"
+        iyz="1.1384E-12"
+        izz="7.6616E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/l_finger_l_gripper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.84706 0.84706 0.84706 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/l_finger_l_gripper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="l_gripper_base_l_finger"
+    type="prismatic">
+    <origin
+      xyz="0.15154 -0.15976 -0.083309"
+      rpy="0 0 0.75902" />
+    <parent
+      link="gripper_base" />
+    <child
+      link="l_finger_l_gripper" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-0.1"
+      upper="0.1"
+      effort="300"
+      velocity="3" />
+  </joint>
+  <link
+    name="r_arm_base">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/r_arm_base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/r_arm_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_r_arm_base"
+    type="fixed">
+    <origin
+      xyz="0.349976146197634 -0.275067184842277 0.8625"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="r_arm_base" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="r_arm_link_1">
+    <inertial>
+      <origin
+        xyz="-0.000125636870781154 -0.0804188199429695 -0.0372240719211019"
+        rpy="0 0 0" />
+      <mass
+        value="0.99376961560053" />
+      <inertia
+        ixx="0.00342907348959179"
+        ixy="1.44752336404471E-05"
+        ixz="-2.09107970542583E-06"
+        iyy="0.000950241498545383"
+        iyz="-7.330297964664E-05"
+        izz="0.00392529574852009" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/r_arm_link_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.564705882352941 0.564705882352941 0.564705882352941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/r_arm_link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="r_arm_base_r_arm_link_1"
+    type="prismatic">
+    <origin
+      xyz="0 0 0.455999999999899"
+      rpy="0 0 0" />
+    <parent
+      link="r_arm_base" />
+    <child
+      link="r_arm_link_1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0.3"
+      upper="0.7"
+      effort="300"
+      velocity="3" />
+  </joint>
+  <link
+    name="r_arm_link_2">
+    <inertial>
+      <origin
+        xyz="0.110638958296988 -0.00949870182453172 -0.0984483168531515"
+        rpy="0 0 0" />
+      <mass
+        value="2.16979338725361" />
+      <inertia
+        ixx="0.00273445011587975"
+        ixy="0.00126755844621284"
+        ixz="9.4228868476365E-05"
+        iyy="0.0173209120460984"
+        iyz="-7.97968333694525E-06"
+        izz="0.0186444327205125" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/r_arm_link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.564705882352941 0.564705882352941 0.564705882352941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/r_arm_link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="r_arm_link_1_r_arm_link_2"
+    type="revolute">
+    <origin
+      xyz="2.38538023998869E-05 -0.131932815157687 -0.00200000000005285"
+      rpy="0 0 0" />
+    <parent
+      link="r_arm_link_1" />
+    <child
+      link="r_arm_link_2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="300"
+      velocity="3" />
+  </joint>
+  <link
+    name="r_arm_link_3">
+    <inertial>
+      <origin
+        xyz="0.0431771728754073 0.0947109741374368 -0.0895746798248389"
+        rpy="0 0 0" />
+      <mass
+        value="1.51944277714983" />
+      <inertia
+        ixx="0.00779168094949869"
+        ixy="-0.00282823353959421"
+        ixz="1.04013867884703E-05"
+        iyy="0.00287734902626482"
+        iyz="2.50711318504381E-05"
+        izz="0.0101312773842739" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/r_arm_link_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.564705882352941 0.564705882352941 0.564705882352941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/r_arm_link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="r_arm_link_2_r_arm_link_3"
+    type="revolute">
+    <origin
+      xyz="0.219189537435978 -0.0188665492047488 -0.0629999999999324"
+      rpy="0 0 0" />
+    <parent
+      link="r_arm_link_2" />
+    <child
+      link="r_arm_link_3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="300"
+      velocity="3" />
+  </joint>
+  <link
+    name="r_arm_gripper_base">
+    <inertial>
+      <origin
+        xyz="0.0521148210779366 -0.0240205898391851 -0.0822842118271684"
+        rpy="0 0 0" />
+      <mass
+        value="0.149380329868679" />
+      <inertia
+        ixx="0.000127476928748419"
+        ixy="3.79028930298664E-05"
+        ixz="5.40933294687371E-06"
+        iyy="0.000193341890041489"
+        iyz="-2.46472178566827E-06"
+        izz="0.000269777657282667" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/r_arm_gripper_base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/r_arm_gripper_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="r_arm_link_3_r_arm_gripper_base"
+    type="revolute">
+    <origin
+      xyz="0.0829629163109964 0.181981192756639 -0.0719999999999965"
+      rpy="0 0 1.5707963267949" />
+    <parent
+      link="r_arm_link_3" />
+    <child
+      link="r_arm_gripper_base" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="300"
+      velocity="3" />
+  </joint>
+  <link
+    name="r_gripper_l_finger">
+    <inertial>
+      <origin
+        xyz="0.02019173270199 0.0173408266589892 0.000100073144415291"
+        rpy="0 0 0" />
+      <mass
+        value="0.0155284591580667" />
+      <inertia
+        ixx="5.33107508612748E-06"
+        ixy="-2.16963471071172E-06"
+        ixz="-5.78919974202937E-14"
+        iyy="2.72756180168153E-06"
+        iyz="1.13591600331747E-12"
+        izz="7.66157733174381E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/r_gripper_l_finger.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.847058823529412 0.847058823529412 0.847058823529412 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/r_gripper_l_finger.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="r_gripper_base_l_finger"
+    type="prismatic">
+    <origin
+      xyz="0.200502478521291 -0.0914065354437857 -0.0830000734394419"
+      rpy="0 0 1.14305731087788" />
+    <parent
+      link="r_arm_gripper_base" />
+    <child
+      link="r_gripper_l_finger" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="0"
+      upper="0.1"
+      effort="300"
+      velocity="3" />
+  </joint>
+  <link
+    name="r_gripper_r_finger">
+    <inertial>
+      <origin
+        xyz="-0.0195761331228346 0.016536304141361 0.000399847238456874"
+        rpy="0 0 0" />
+      <mass
+        value="0.0162893218523249" />
+      <inertia
+        ixx="5.48940286216819E-06"
+        ixy="2.16963469343169E-06"
+        ixz="4.42630322994917E-10"
+        iyy="2.7499483324012E-06"
+        iyz="-1.14140073654552E-12"
+        izz="7.84217510614175E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/r_gripper_r_finger.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.847058823529412 0.847058823529412 0.847058823529412 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grape_harvester/meshes/r_gripper_r_finger.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="r_gripper_base_r_finger"
+    type="prismatic">
+    <origin
+      xyz="0.200502478521291 -0.0914065354437857 -0.0830000734394419"
+      rpy="0 0 1.14305731087788" />
+    <parent
+      link="r_arm_gripper_base" />
+    <child
+      link="r_gripper_r_finger" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="0"
+      upper="0.1"
+      effort="300"
+      velocity="3" />
+  </joint>
+</robot>
