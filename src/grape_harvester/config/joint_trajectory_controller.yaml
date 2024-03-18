@@ -1,0 +1,20 @@
+#Instead of using TAB for indentation, use two spaces at the place of one TAB
+#Controller to control robot arm joints
+robot_l_arm_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints: [l_arm_base_l_arm_link1, l_arm_link_1_l_arm_link_2, l_arm_link_2_l_arm_link_3, l_arm_link3_gripper_base]
+#Controller to control end effector joints
+hand_l_ee_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints: [l_gripper_base_r_finger, l_gripper_base_l_finger]
+robot_r_arm_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints: [r_arm_base_r_arm_link_1, r_arm_link_1_r_arm_link_2, r_arm_link_2_r_arm_link_3, r_arm_link_3_r_arm_gripper_base]
+#Controller to control end effector joints
+hand_r_ee_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints: [r_gripper_base_l_finger, r_gripper_base_r_finger]
+#Controller to continuously publish joint states/positions
+joint_state_controller:
+  type: "joint_state_controller/JointStateController"
+  publish_rate: 50

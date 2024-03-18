@@ -440,8 +440,8 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-3.14"
-      upper="3.14"
+      lower="-2.6"
+      upper="0.82"
       effort="300"
       velocity="3" />
   </joint>
@@ -614,8 +614,8 @@
     <axis
       xyz="-1 0 0" />
     <limit
-      lower="-0.1"
-      upper="0.1"
+      lower="0"
+      upper="0.02"
       effort="300"
       velocity="3" />
   </joint>
@@ -672,8 +672,8 @@
     <axis
       xyz="-1 0 0" />
     <limit
-      lower="-0.1"
-      upper="0.1"
+      lower="-0.02"
+      upper="0"
       effort="300"
       velocity="3" />
   </joint>
@@ -774,7 +774,7 @@
     name="r_arm_base_r_arm_link_1"
     type="prismatic">
     <origin
-      xyz="0 0 0.455999999999899"
+      xyz="0 0 0.593759108516829"
       rpy="0 0 0" />
     <parent
       link="r_arm_base" />
@@ -842,7 +842,7 @@
       xyz="0 0 1" />
     <limit
       lower="-3.14"
-      upper="3.14"
+      upper="0"
       effort="300"
       velocity="3" />
   </joint>
@@ -1078,4 +1078,178 @@
       effort="300"
       velocity="3" />
   </joint>
+
+  <transmission name="l_arm_link_1_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="l_arm_base_l_arm_link1">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="l_arm_link_1_motor">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> 
+
+  <transmission name="l_arm_link_2_trans">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="l_arm_link_1_l_arm_link_2">
+  <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="l_arm_link_2_motor">
+  <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+  </transmission> 
+
+  <transmission name="l_arm_link_3_trans">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="l_arm_link_2_l_arm_link_3">
+  <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="l_arm_link_3_motor">
+  <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+  </transmission> 
+
+  <transmission name="gripper_base_trans">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="l_arm_link3_gripper_base">
+  <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="gripper_base_motor">
+  <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+  </transmission> 
+
+  <transmission name="l_finger_l_gripper_trans">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="l_gripper_base_l_finger">
+  <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="l_finger_l_gripper_motor">
+  <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+  </transmission> 
+
+  <transmission name="r_finger_l_gripper_trans">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="l_gripper_base_r_finger">
+  <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="r_finger_l_gripper_motor">
+  <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+  </transmission> 
+
+   <transmission name="r_arm_link_1_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="r_arm_base_r_arm_link_1">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="r_arm_link_1_motor">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> 
+
+   <transmission name="r_arm_link_2_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="r_arm_link_1_r_arm_link_2">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="r_arm_link_2_motor">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> 
+
+   <transmission name="r_arm_link_3_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="r_arm_link_2_r_arm_link_3">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="r_arm_link_3_motor">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> 
+
+   <transmission name="r_arm_gripper_base_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="r_arm_link_3_r_arm_gripper_base">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="r_arm_gripper_base_motor">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> 
+
+   <transmission name="r_gripper_l_finger_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="r_gripper_base_l_finger">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="r_gripper_l_finger_motor">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> 
+
+   <transmission name="r_gripper_r_finger_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="r_gripper_base_r_finger">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="r_gripper_r_finger_motor">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> 
+
+
+  <gazebo>
+    <plugin name="control"
+    filename="libgazebo_ros_control.so">
+    <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
+
+
+  <gazebo>
+  <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+    <updateRate>100.0</updateRate>
+    <robotNamespace>/</robotNamespace>
+    <leftFrontJoint>base_l_wheel_front</leftFrontJoint>
+    <rightFrontJoint>base_r_wheel_front</rightFrontJoint>
+    <leftRearJoint>base_l_wheel_back</leftRearJoint>
+    <rightRearJoint>base_r_wheel_back</rightRearJoint>
+    <wheelSeparation>0.4</wheelSeparation>
+    <wheelDiameter>0.215</wheelDiameter>
+    <robotBaseFrame>base_link</robotBaseFrame>
+    <torque>5000</torque>
+    <commandTopic>cmd_vel</commandTopic>
+    <odometryTopic>odom</odometryTopic>
+    <odometryFrame>odom</odometryFrame>
+    <topicName>cmd_vel</topicName>
+    <broadcastTF>false</broadcastTF>
+    <covariance_x>0.0001</covariance_x>
+    <covariance_y>0.0001</covariance_y>
+    <covariance_yaw>0.01</covariance_yaw>
+  </plugin>
+  <!-- <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometryRate>20.0</odometryRate>
+      <robotBaseFrame>base_link</robotBaseFrame>
+    </plugin> -->
+
+    <!-- rosrun teleop_twist_keyboard teleop_twist_keyboard.py -->
+</gazebo>
+
 </robot>
