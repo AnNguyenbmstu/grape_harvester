@@ -1,2 +1,2 @@
-arm:grape_harvester
+arm:grape_harvester:moveit_grape_harvester
 -DCATKIN_DEVEL_PREFIX=/home/an/diplom/devel -DCMAKE_INSTALL_PREFIX=/home/an/diplom/install -G Unix Makefiles

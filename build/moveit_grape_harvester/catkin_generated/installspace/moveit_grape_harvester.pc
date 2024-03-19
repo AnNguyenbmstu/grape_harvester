@@ -1,0 +1,8 @@
+prefix=/home/an/diplom/install
+
+Name: moveit_grape_harvester
+Description: Description of moveit_grape_harvester
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

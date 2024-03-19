@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: grape_harvester
+    relative_path: urdf/grape_harvester.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/grape_harvester.srdf
+  CONFIG:
+    author_name: An Nguyen
+    author_email: an2752garena@gmail.com
+    generated_timestamp: 1710876761

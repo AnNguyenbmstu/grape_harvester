@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="grape_harvester">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="l_manipulator">
+        <joint name="l_arm_base_l_arm_link1"/>
+        <joint name="l_arm_link_1_l_arm_link_2"/>
+        <joint name="l_arm_link_2_l_arm_link_3"/>
+        <joint name="l_arm_link3_gripper_base"/>
+    </group>
+    <group name="l_gripper">
+        <joint name="l_gripper_base_l_finger"/>
+        <joint name="l_gripper_base_r_finger"/>
+    </group>
+    <group name="r_manipulator">
+        <joint name="r_arm_base_r_arm_link_1"/>
+        <joint name="r_arm_link_1_r_arm_link_2"/>
+        <joint name="r_arm_link_2_r_arm_link_3"/>
+        <joint name="r_arm_link_3_r_arm_gripper_base"/>
+    </group>
+    <group name="r_gripper">
+        <joint name="r_gripper_base_l_finger"/>
+        <joint name="r_gripper_base_r_finger"/>
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="l_manipulator_cut_point" group="l_manipulator">
+        <joint name="l_arm_base_l_arm_link1" value="-0.0013"/>
+        <joint name="l_arm_link3_gripper_base" value="-0.06"/>
+        <joint name="l_arm_link_1_l_arm_link_2" value="-0.5306"/>
+        <joint name="l_arm_link_2_l_arm_link_3" value="1.3267"/>
+    </group_state>
+    <group_state name="l_gripper_open" group="l_gripper">
+        <joint name="l_gripper_base_l_finger" value="-0.02"/>
+        <joint name="l_gripper_base_r_finger" value="0.02"/>
+    </group_state>
+    <group_state name="l_gripper_close" group="l_gripper">
+        <joint name="l_gripper_base_l_finger" value="0"/>
+        <joint name="l_gripper_base_r_finger" value="0"/>
+    </group_state>
+    <group_state name="l_manipulator_push" group="l_manipulator">
+        <joint name="l_arm_base_l_arm_link1" value="0.1652"/>
+        <joint name="l_arm_link3_gripper_base" value="-0.0333"/>
+        <joint name="l_arm_link_1_l_arm_link_2" value="-2.2006"/>
+        <joint name="l_arm_link_2_l_arm_link_3" value="-0.1"/>
+    </group_state>
+    <group_state name="r_manipulator_cut_point" group="r_manipulator">
+        <joint name="r_arm_base_r_arm_link_1" value="0.0811"/>
+        <joint name="r_arm_link_1_r_arm_link_2" value="-1.3533"/>
+        <joint name="r_arm_link_2_r_arm_link_3" value="-1.6333"/>
+        <joint name="r_arm_link_3_r_arm_gripper_base" value="0"/>
+    </group_state>
+    <group_state name="r_gripper_open" group="r_gripper">
+        <joint name="r_gripper_base_l_finger" value="0"/>
+        <joint name="r_gripper_base_r_finger" value="0.0308"/>
+    </group_state>
+    <group_state name="r_gripper_close" group="r_gripper">
+        <joint name="r_gripper_base_l_finger" value="0"/>
+        <joint name="r_gripper_base_r_finger" value="0"/>
+    </group_state>
+    <group_state name="r_manipulator_push" group="r_manipulator">
+        <joint name="r_arm_base_r_arm_link_1" value="0.1414"/>
+        <joint name="r_arm_link_1_r_arm_link_2" value="0"/>
+        <joint name="r_arm_link_2_r_arm_link_3" value="0.0333"/>
+        <joint name="r_arm_link_3_r_arm_gripper_base" value="0.2467"/>
+    </group_state>
+    <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
+    <end_effector name="l_gripper" parent_link="gripper_base" group="l_gripper"/>
+    <end_effector name="r_gripper" parent_link="r_arm_gripper_base" group="r_gripper"/>
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="base_link" link2="gripper_base" reason="Never"/>
+    <disable_collisions link1="base_link" link2="l_arm_base" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="l_arm_link_1" reason="Never"/>
+    <disable_collisions link1="base_link" link2="l_arm_link_2" reason="Never"/>
+    <disable_collisions link1="base_link" link2="l_arm_link_3" reason="Never"/>
+    <disable_collisions link1="base_link" link2="l_wheel_back" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="l_wheel_front" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="r_arm_base" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="r_arm_gripper_base" reason="Never"/>
+    <disable_collisions link1="base_link" link2="r_arm_link_1" reason="Never"/>
+    <disable_collisions link1="base_link" link2="r_arm_link_2" reason="Never"/>
+    <disable_collisions link1="base_link" link2="r_arm_link_3" reason="Never"/>
+    <disable_collisions link1="base_link" link2="r_wheel_front" reason="Adjacent"/>
+    <disable_collisions link1="gripper_base" link2="l_arm_link_1" reason="Never"/>
+    <disable_collisions link1="gripper_base" link2="l_arm_link_2" reason="Never"/>
+    <disable_collisions link1="gripper_base" link2="l_arm_link_3" reason="Adjacent"/>
+    <disable_collisions link1="gripper_base" link2="l_finger_l_gripper" reason="Adjacent"/>
+    <disable_collisions link1="gripper_base" link2="l_wheel_back" reason="Never"/>
+    <disable_collisions link1="gripper_base" link2="l_wheel_front" reason="Never"/>
+    <disable_collisions link1="gripper_base" link2="r_arm_base" reason="Never"/>
+    <disable_collisions link1="gripper_base" link2="r_arm_gripper_base" reason="Never"/>
+    <disable_collisions link1="gripper_base" link2="r_arm_link_1" reason="Never"/>
+    <disable_collisions link1="gripper_base" link2="r_arm_link_2" reason="Never"/>
+    <disable_collisions link1="gripper_base" link2="r_arm_link_3" reason="Never"/>
+    <disable_collisions link1="gripper_base" link2="r_finger_l_gripper" reason="Adjacent"/>
+    <disable_collisions link1="gripper_base" link2="r_gripper_l_finger" reason="Never"/>
+    <disable_collisions link1="gripper_base" link2="r_gripper_r_finger" reason="Never"/>
+    <disable_collisions link1="gripper_base" link2="r_wheel_back" reason="Never"/>
+    <disable_collisions link1="gripper_base" link2="r_wheel_front" reason="Never"/>
+    <disable_collisions link1="l_arm_base" link2="l_arm_link_1" reason="Adjacent"/>
+    <disable_collisions link1="l_arm_base" link2="l_arm_link_2" reason="Never"/>
+    <disable_collisions link1="l_arm_base" link2="l_wheel_back" reason="Never"/>
+    <disable_collisions link1="l_arm_base" link2="l_wheel_front" reason="Never"/>
+    <disable_collisions link1="l_arm_base" link2="r_arm_base" reason="Never"/>
+    <disable_collisions link1="l_arm_base" link2="r_arm_gripper_base" reason="Never"/>
+    <disable_collisions link1="l_arm_base" link2="r_arm_link_1" reason="Never"/>
+    <disable_collisions link1="l_arm_base" link2="r_arm_link_2" reason="Never"/>
+    <disable_collisions link1="l_arm_base" link2="r_arm_link_3" reason="Never"/>
+    <disable_collisions link1="l_arm_base" link2="r_gripper_l_finger" reason="Never"/>
+    <disable_collisions link1="l_arm_base" link2="r_gripper_r_finger" reason="Never"/>
+    <disable_collisions link1="l_arm_base" link2="r_wheel_back" reason="Never"/>
+    <disable_collisions link1="l_arm_base" link2="r_wheel_front" reason="Never"/>
+    <disable_collisions link1="l_arm_link_1" link2="l_arm_link_2" reason="Adjacent"/>
+    <disable_collisions link1="l_arm_link_1" link2="l_finger_l_gripper" reason="Never"/>
+    <disable_collisions link1="l_arm_link_1" link2="l_wheel_back" reason="Never"/>
+    <disable_collisions link1="l_arm_link_1" link2="l_wheel_front" reason="Never"/>
+    <disable_collisions link1="l_arm_link_1" link2="r_arm_base" reason="Never"/>
+    <disable_collisions link1="l_arm_link_1" link2="r_arm_gripper_base" reason="Never"/>
+    <disable_collisions link1="l_arm_link_1" link2="r_arm_link_1" reason="Never"/>
+    <disable_collisions link1="l_arm_link_1" link2="r_arm_link_2" reason="Never"/>
+    <disable_collisions link1="l_arm_link_1" link2="r_arm_link_3" reason="Never"/>
+    <disable_collisions link1="l_arm_link_1" link2="r_finger_l_gripper" reason="Never"/>
+    <disable_collisions link1="l_arm_link_1" link2="r_gripper_l_finger" reason="Never"/>
+    <disable_collisions link1="l_arm_link_1" link2="r_gripper_r_finger" reason="Never"/>
+    <disable_collisions link1="l_arm_link_1" link2="r_wheel_back" reason="Never"/>
+    <disable_collisions link1="l_arm_link_1" link2="r_wheel_front" reason="Never"/>
+    <disable_collisions link1="l_arm_link_2" link2="l_arm_link_3" reason="Adjacent"/>
+    <disable_collisions link1="l_arm_link_2" link2="l_finger_l_gripper" reason="Never"/>
+    <disable_collisions link1="l_arm_link_2" link2="l_wheel_back" reason="Never"/>
+    <disable_collisions link1="l_arm_link_2" link2="l_wheel_front" reason="Never"/>
+    <disable_collisions link1="l_arm_link_2" link2="r_arm_base" reason="Never"/>
+    <disable_collisions link1="l_arm_link_2" link2="r_arm_gripper_base" reason="Never"/>
+    <disable_collisions link1="l_arm_link_2" link2="r_arm_link_1" reason="Never"/>
+    <disable_collisions link1="l_arm_link_2" link2="r_arm_link_2" reason="Never"/>
+    <disable_collisions link1="l_arm_link_2" link2="r_arm_link_3" reason="Never"/>
+    <disable_collisions link1="l_arm_link_2" link2="r_finger_l_gripper" reason="Never"/>
+    <disable_collisions link1="l_arm_link_2" link2="r_gripper_l_finger" reason="Never"/>
+    <disable_collisions link1="l_arm_link_2" link2="r_gripper_r_finger" reason="Never"/>
+    <disable_collisions link1="l_arm_link_2" link2="r_wheel_back" reason="Never"/>
+    <disable_collisions link1="l_arm_link_2" link2="r_wheel_front" reason="Never"/>
+    <disable_collisions link1="l_arm_link_3" link2="l_finger_l_gripper" reason="Never"/>
+    <disable_collisions link1="l_arm_link_3" link2="l_wheel_back" reason="Never"/>
+    <disable_collisions link1="l_arm_link_3" link2="l_wheel_front" reason="Never"/>
+    <disable_collisions link1="l_arm_link_3" link2="r_arm_base" reason="Never"/>
+    <disable_collisions link1="l_arm_link_3" link2="r_arm_gripper_base" reason="Never"/>
+    <disable_collisions link1="l_arm_link_3" link2="r_arm_link_1" reason="Never"/>
+    <disable_collisions link1="l_arm_link_3" link2="r_arm_link_2" reason="Never"/>
+    <disable_collisions link1="l_arm_link_3" link2="r_arm_link_3" reason="Never"/>
+    <disable_collisions link1="l_arm_link_3" link2="r_finger_l_gripper" reason="Never"/>
+    <disable_collisions link1="l_arm_link_3" link2="r_gripper_l_finger" reason="Never"/>
+    <disable_collisions link1="l_arm_link_3" link2="r_gripper_r_finger" reason="Never"/>
+    <disable_collisions link1="l_arm_link_3" link2="r_wheel_back" reason="Never"/>
+    <disable_collisions link1="l_arm_link_3" link2="r_wheel_front" reason="Never"/>
+    <disable_collisions link1="l_finger_l_gripper" link2="l_wheel_back" reason="Never"/>
+    <disable_collisions link1="l_finger_l_gripper" link2="l_wheel_front" reason="Never"/>
+    <disable_collisions link1="l_finger_l_gripper" link2="r_arm_base" reason="Never"/>
+    <disable_collisions link1="l_finger_l_gripper" link2="r_arm_gripper_base" reason="Never"/>
+    <disable_collisions link1="l_finger_l_gripper" link2="r_arm_link_1" reason="Never"/>
+    <disable_collisions link1="l_finger_l_gripper" link2="r_arm_link_2" reason="Never"/>
+    <disable_collisions link1="l_finger_l_gripper" link2="r_arm_link_3" reason="Never"/>
+    <disable_collisions link1="l_finger_l_gripper" link2="r_finger_l_gripper" reason="Default"/>
+    <disable_collisions link1="l_finger_l_gripper" link2="r_gripper_l_finger" reason="Never"/>
+    <disable_collisions link1="l_finger_l_gripper" link2="r_gripper_r_finger" reason="Never"/>
+    <disable_collisions link1="l_finger_l_gripper" link2="r_wheel_back" reason="Never"/>
+    <disable_collisions link1="l_finger_l_gripper" link2="r_wheel_front" reason="Never"/>
+    <disable_collisions link1="l_wheel_back" link2="l_wheel_front" reason="Never"/>
+    <disable_collisions link1="l_wheel_back" link2="r_arm_base" reason="Never"/>
+    <disable_collisions link1="l_wheel_back" link2="r_arm_gripper_base" reason="Never"/>
+    <disable_collisions link1="l_wheel_back" link2="r_arm_link_1" reason="Never"/>
+    <disable_collisions link1="l_wheel_back" link2="r_arm_link_2" reason="Never"/>
+    <disable_collisions link1="l_wheel_back" link2="r_arm_link_3" reason="Never"/>
+    <disable_collisions link1="l_wheel_back" link2="r_finger_l_gripper" reason="Never"/>
+    <disable_collisions link1="l_wheel_back" link2="r_gripper_l_finger" reason="Never"/>
+    <disable_collisions link1="l_wheel_back" link2="r_gripper_r_finger" reason="Never"/>
+    <disable_collisions link1="l_wheel_back" link2="r_wheel_back" reason="Never"/>
+    <disable_collisions link1="l_wheel_back" link2="r_wheel_front" reason="Never"/>
+    <disable_collisions link1="l_wheel_front" link2="r_arm_base" reason="Never"/>
+    <disable_collisions link1="l_wheel_front" link2="r_arm_gripper_base" reason="Never"/>
+    <disable_collisions link1="l_wheel_front" link2="r_arm_link_1" reason="Never"/>
+    <disable_collisions link1="l_wheel_front" link2="r_arm_link_2" reason="Never"/>
+    <disable_collisions link1="l_wheel_front" link2="r_arm_link_3" reason="Never"/>
+    <disable_collisions link1="l_wheel_front" link2="r_finger_l_gripper" reason="Never"/>
+    <disable_collisions link1="l_wheel_front" link2="r_gripper_l_finger" reason="Never"/>
+    <disable_collisions link1="l_wheel_front" link2="r_gripper_r_finger" reason="Never"/>
+    <disable_collisions link1="l_wheel_front" link2="r_wheel_back" reason="Never"/>
+    <disable_collisions link1="l_wheel_front" link2="r_wheel_front" reason="Never"/>
+    <disable_collisions link1="r_arm_base" link2="r_arm_link_1" reason="Adjacent"/>
+    <disable_collisions link1="r_arm_base" link2="r_arm_link_2" reason="Never"/>
+    <disable_collisions link1="r_arm_base" link2="r_arm_link_3" reason="Default"/>
+    <disable_collisions link1="r_arm_base" link2="r_finger_l_gripper" reason="Never"/>
+    <disable_collisions link1="r_arm_base" link2="r_wheel_back" reason="Never"/>
+    <disable_collisions link1="r_arm_base" link2="r_wheel_front" reason="Never"/>
+    <disable_collisions link1="r_arm_gripper_base" link2="r_arm_link_1" reason="Never"/>
+    <disable_collisions link1="r_arm_gripper_base" link2="r_arm_link_3" reason="Adjacent"/>
+    <disable_collisions link1="r_arm_gripper_base" link2="r_finger_l_gripper" reason="Never"/>
+    <disable_collisions link1="r_arm_gripper_base" link2="r_gripper_l_finger" reason="Adjacent"/>
+    <disable_collisions link1="r_arm_gripper_base" link2="r_gripper_r_finger" reason="Adjacent"/>
+    <disable_collisions link1="r_arm_gripper_base" link2="r_wheel_back" reason="Never"/>
+    <disable_collisions link1="r_arm_gripper_base" link2="r_wheel_front" reason="Never"/>
+    <disable_collisions link1="r_arm_link_1" link2="r_arm_link_2" reason="Adjacent"/>
+    <disable_collisions link1="r_arm_link_1" link2="r_finger_l_gripper" reason="Never"/>
+    <disable_collisions link1="r_arm_link_1" link2="r_gripper_l_finger" reason="Never"/>
+    <disable_collisions link1="r_arm_link_1" link2="r_gripper_r_finger" reason="Never"/>
+    <disable_collisions link1="r_arm_link_1" link2="r_wheel_back" reason="Never"/>
+    <disable_collisions link1="r_arm_link_1" link2="r_wheel_front" reason="Never"/>
+    <disable_collisions link1="r_arm_link_2" link2="r_arm_link_3" reason="Adjacent"/>
+    <disable_collisions link1="r_arm_link_2" link2="r_finger_l_gripper" reason="Never"/>
+    <disable_collisions link1="r_arm_link_2" link2="r_gripper_l_finger" reason="Never"/>
+    <disable_collisions link1="r_arm_link_2" link2="r_gripper_r_finger" reason="Never"/>
+    <disable_collisions link1="r_arm_link_2" link2="r_wheel_back" reason="Never"/>
+    <disable_collisions link1="r_arm_link_2" link2="r_wheel_front" reason="Never"/>
+    <disable_collisions link1="r_arm_link_3" link2="r_finger_l_gripper" reason="Never"/>
+    <disable_collisions link1="r_arm_link_3" link2="r_gripper_l_finger" reason="Never"/>
+    <disable_collisions link1="r_arm_link_3" link2="r_gripper_r_finger" reason="Never"/>
+    <disable_collisions link1="r_arm_link_3" link2="r_wheel_back" reason="Never"/>
+    <disable_collisions link1="r_arm_link_3" link2="r_wheel_front" reason="Never"/>
+    <disable_collisions link1="r_finger_l_gripper" link2="r_gripper_l_finger" reason="Never"/>
+    <disable_collisions link1="r_finger_l_gripper" link2="r_gripper_r_finger" reason="Never"/>
+    <disable_collisions link1="r_finger_l_gripper" link2="r_wheel_back" reason="Never"/>
+    <disable_collisions link1="r_finger_l_gripper" link2="r_wheel_front" reason="Never"/>
+    <disable_collisions link1="r_gripper_l_finger" link2="r_gripper_r_finger" reason="Default"/>
+    <disable_collisions link1="r_gripper_l_finger" link2="r_wheel_back" reason="Never"/>
+    <disable_collisions link1="r_gripper_l_finger" link2="r_wheel_front" reason="Never"/>
+    <disable_collisions link1="r_gripper_r_finger" link2="r_wheel_back" reason="Never"/>
+    <disable_collisions link1="r_gripper_r_finger" link2="r_wheel_front" reason="Never"/>
+    <disable_collisions link1="r_wheel_back" link2="r_wheel_front" reason="Never"/>
+    <disable_collisions link1="base_link" link2="l_finger_l_gripper" reason="User"/>
+    <disable_collisions link1="base_link" link2="r_finger_l_gripper" reason="User"/>
+    <disable_collisions link1="l_arm_base" link2="l_finger_l_gripper" reason="User"/>
+    <disable_collisions link1="l_arm_base" link2="l_arm_link_3" reason="User"/>
+    <disable_collisions link1="gripper_base" link2="l_arm_base" reason="User"/>
+    <disable_collisions link1="l_arm_base" link2="r_finger_l_gripper" reason="User"/>
+    <disable_collisions link1="l_arm_link_1" link2="l_arm_link_3" reason="User"/>
+    <disable_collisions link1="r_arm_link_1" link2="r_arm_link_3" reason="User"/>
+    <disable_collisions link1="r_arm_gripper_base" link2="r_arm_link_2" reason="User"/>
+    <disable_collisions link1="base_link" link2="r_gripper_l_finger" reason="User"/>
+    <disable_collisions link1="base_link" link2="r_wheel_back" reason="User"/>
+    <disable_collisions link1="base_link" link2="r_gripper_r_finger" reason="User"/>
+    <disable_collisions link1="r_arm_base" link2="r_arm_gripper_base" reason="User"/>
+    <disable_collisions link1="r_arm_base" link2="r_gripper_l_finger" reason="User"/>
+    <disable_collisions link1="r_arm_base" link2="r_gripper_r_finger" reason="User"/>
+</robot>

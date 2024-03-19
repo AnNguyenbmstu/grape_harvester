@@ -1,0 +1,33 @@
+#This is a movit contoller connecting follow_joint_trajectory controller with JointTrajectoryController
+
+controller_list:
+  - name: robot_l_arm_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+    - l_arm_base_l_arm_link1
+    - l_arm_link_1_l_arm_link_2
+    - l_arm_link_2_l_arm_link_3
+    - l_arm_link3_gripper_base
+  - name: hand_l_ee_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+    - l_gripper_base_r_finger
+    - l_gripper_base_l_finger
+  - name: robot_r_arm_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+    - r_arm_base_r_arm_link_1
+    - r_arm_link_1_r_arm_link_2
+    - r_arm_link_2_r_arm_link_3
+    - r_arm_link_3_r_arm_gripper_base
+  - name: hand_l_ee_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+    - r_gripper_base_l_finger
+    - r_gripper_base_r_finger

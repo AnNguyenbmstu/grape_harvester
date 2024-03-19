@@ -131,6 +131,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/an/diplom/build/gtest/cmake_install.cmake")
+  include("/home/an/diplom/build/moveit_grape_harvester/cmake_install.cmake")
   include("/home/an/diplom/build/arm/cmake_install.cmake")
   include("/home/an/diplom/build/grape_harvester/cmake_install.cmake")
 

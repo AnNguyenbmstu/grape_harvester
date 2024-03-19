@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/an/diplom/build
 
 # The main recursive "all" target.
 all: gtest/all
+all: moveit_grape_harvester/all
 all: arm/all
 all: grape_harvester/all
 
@@ -61,6 +62,7 @@ all: grape_harvester/all
 
 # The main recursive "preinstall" target.
 preinstall: gtest/preinstall
+preinstall: moveit_grape_harvester/preinstall
 preinstall: arm/preinstall
 preinstall: grape_harvester/preinstall
 
@@ -73,6 +75,7 @@ clean: CMakeFiles/clean_test_results.dir/clean
 clean: CMakeFiles/tests.dir/clean
 clean: CMakeFiles/download_extra_data.dir/clean
 clean: gtest/clean
+clean: moveit_grape_harvester/clean
 clean: arm/clean
 clean: grape_harvester/clean
 
@@ -96,18 +99,17 @@ arm/clean: arm/CMakeFiles/arm_xacro_generated_to_devel_space_.dir/clean
 arm/clean: arm/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
 arm/clean: arm/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 arm/clean: arm/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
-arm/clean: arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
 arm/clean: arm/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
 arm/clean: arm/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
 arm/clean: arm/CMakeFiles/roscpp_generate_messages_eus.dir/clean
 arm/clean: arm/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean
+arm/clean: arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
 arm/clean: arm/CMakeFiles/roscpp_generate_messages_py.dir/clean
 arm/clean: arm/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
 arm/clean: arm/CMakeFiles/std_msgs_generate_messages_eus.dir/clean
 arm/clean: arm/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
 arm/clean: arm/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
 arm/clean: arm/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
-arm/clean: arm/CMakeFiles/_catkin_empty_exported_target.dir/clean
 arm/clean: arm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
 arm/clean: arm/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
 arm/clean: arm/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
@@ -191,6 +193,24 @@ gtest/googletest/clean: gtest/googletest/CMakeFiles/gtest_main.dir/clean
 gtest/googletest/clean: gtest/googletest/CMakeFiles/gtest.dir/clean
 
 .PHONY : gtest/googletest/clean
+
+#=============================================================================
+# Directory level rules for directory moveit_grape_harvester
+
+# Recursive "all" directory target.
+moveit_grape_harvester/all:
+
+.PHONY : moveit_grape_harvester/all
+
+# Recursive "preinstall" directory target.
+moveit_grape_harvester/preinstall:
+
+.PHONY : moveit_grape_harvester/preinstall
+
+# Recursive "clean" directory target.
+moveit_grape_harvester/clean: moveit_grape_harvester/CMakeFiles/_catkin_empty_exported_target.dir/clean
+
+.PHONY : moveit_grape_harvester/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/doxygen.dir
@@ -437,6 +457,33 @@ gtest/googletest/CMakeFiles/gtest.dir/clean:
 .PHONY : gtest/googletest/CMakeFiles/gtest.dir/clean
 
 #=============================================================================
+# Target rules for target moveit_grape_harvester/CMakeFiles/_catkin_empty_exported_target.dir
+
+# All Build rule for target.
+moveit_grape_harvester/CMakeFiles/_catkin_empty_exported_target.dir/all:
+	$(MAKE) -f moveit_grape_harvester/CMakeFiles/_catkin_empty_exported_target.dir/build.make moveit_grape_harvester/CMakeFiles/_catkin_empty_exported_target.dir/depend
+	$(MAKE) -f moveit_grape_harvester/CMakeFiles/_catkin_empty_exported_target.dir/build.make moveit_grape_harvester/CMakeFiles/_catkin_empty_exported_target.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/an/diplom/build/CMakeFiles --progress-num= "Built target _catkin_empty_exported_target"
+.PHONY : moveit_grape_harvester/CMakeFiles/_catkin_empty_exported_target.dir/all
+
+# Build rule for subdir invocation for target.
+moveit_grape_harvester/CMakeFiles/_catkin_empty_exported_target.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/an/diplom/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 moveit_grape_harvester/CMakeFiles/_catkin_empty_exported_target.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/an/diplom/build/CMakeFiles 0
+.PHONY : moveit_grape_harvester/CMakeFiles/_catkin_empty_exported_target.dir/rule
+
+# Convenience name for target.
+_catkin_empty_exported_target: moveit_grape_harvester/CMakeFiles/_catkin_empty_exported_target.dir/rule
+
+.PHONY : _catkin_empty_exported_target
+
+# clean rule for target.
+moveit_grape_harvester/CMakeFiles/_catkin_empty_exported_target.dir/clean:
+	$(MAKE) -f moveit_grape_harvester/CMakeFiles/_catkin_empty_exported_target.dir/build.make moveit_grape_harvester/CMakeFiles/_catkin_empty_exported_target.dir/clean
+.PHONY : moveit_grape_harvester/CMakeFiles/_catkin_empty_exported_target.dir/clean
+
+#=============================================================================
 # Target rules for target arm/CMakeFiles/arm_xacro_generated_to_devel_space_.dir
 
 # All Build rule for target.
@@ -545,33 +592,6 @@ arm/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean:
 .PHONY : arm/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
 
 #=============================================================================
-# Target rules for target arm/CMakeFiles/std_msgs_generate_messages_lisp.dir
-
-# All Build rule for target.
-arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/all:
-	$(MAKE) -f arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/depend
-	$(MAKE) -f arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/an/diplom/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_lisp"
-.PHONY : arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
-
-# Build rule for subdir invocation for target.
-arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/an/diplom/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/an/diplom/build/CMakeFiles 0
-.PHONY : arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_lisp: arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : std_msgs_generate_messages_lisp
-
-# clean rule for target.
-arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean:
-	$(MAKE) -f arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
-.PHONY : arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
-
-#=============================================================================
 # Target rules for target arm/CMakeFiles/geometry_msgs_generate_messages_py.dir
 
 # All Build rule for target.
@@ -678,6 +698,33 @@ rosgraph_msgs_generate_messages_nodejs: arm/CMakeFiles/rosgraph_msgs_generate_me
 arm/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean:
 	$(MAKE) -f arm/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make arm/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean
 .PHONY : arm/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean
+
+#=============================================================================
+# Target rules for target arm/CMakeFiles/std_msgs_generate_messages_lisp.dir
+
+# All Build rule for target.
+arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/all:
+	$(MAKE) -f arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/depend
+	$(MAKE) -f arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/an/diplom/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_lisp"
+.PHONY : arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+
+# Build rule for subdir invocation for target.
+arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/an/diplom/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/an/diplom/build/CMakeFiles 0
+.PHONY : arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_lisp: arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : std_msgs_generate_messages_lisp
+
+# clean rule for target.
+arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
+.PHONY : arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
 
 #=============================================================================
 # Target rules for target arm/CMakeFiles/roscpp_generate_messages_py.dir
@@ -840,33 +887,6 @@ std_msgs_generate_messages_cpp: arm/CMakeFiles/std_msgs_generate_messages_cpp.di
 arm/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean:
 	$(MAKE) -f arm/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make arm/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
 .PHONY : arm/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
-
-#=============================================================================
-# Target rules for target arm/CMakeFiles/_catkin_empty_exported_target.dir
-
-# All Build rule for target.
-arm/CMakeFiles/_catkin_empty_exported_target.dir/all:
-	$(MAKE) -f arm/CMakeFiles/_catkin_empty_exported_target.dir/build.make arm/CMakeFiles/_catkin_empty_exported_target.dir/depend
-	$(MAKE) -f arm/CMakeFiles/_catkin_empty_exported_target.dir/build.make arm/CMakeFiles/_catkin_empty_exported_target.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/an/diplom/build/CMakeFiles --progress-num= "Built target _catkin_empty_exported_target"
-.PHONY : arm/CMakeFiles/_catkin_empty_exported_target.dir/all
-
-# Build rule for subdir invocation for target.
-arm/CMakeFiles/_catkin_empty_exported_target.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/an/diplom/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 arm/CMakeFiles/_catkin_empty_exported_target.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/an/diplom/build/CMakeFiles 0
-.PHONY : arm/CMakeFiles/_catkin_empty_exported_target.dir/rule
-
-# Convenience name for target.
-_catkin_empty_exported_target: arm/CMakeFiles/_catkin_empty_exported_target.dir/rule
-
-.PHONY : _catkin_empty_exported_target
-
-# clean rule for target.
-arm/CMakeFiles/_catkin_empty_exported_target.dir/clean:
-	$(MAKE) -f arm/CMakeFiles/_catkin_empty_exported_target.dir/build.make arm/CMakeFiles/_catkin_empty_exported_target.dir/clean
-.PHONY : arm/CMakeFiles/_catkin_empty_exported_target.dir/clean
 
 #=============================================================================
 # Target rules for target arm/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir

@@ -1,0 +1,34 @@
+controller_list:
+  - name: fake_l_manipulator_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - l_arm_base_l_arm_link1
+      - l_arm_link_1_l_arm_link_2
+      - l_arm_link_2_l_arm_link_3
+      - l_arm_link3_gripper_base
+  - name: fake_l_gripper_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - l_gripper_base_l_finger
+      - l_gripper_base_r_finger
+  - name: fake_r_manipulator_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - r_arm_base_r_arm_link_1
+      - r_arm_link_1_r_arm_link_2
+      - r_arm_link_2_r_arm_link_3
+      - r_arm_link_3_r_arm_gripper_base
+  - name: fake_r_gripper_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - r_gripper_base_l_finger
+      - r_gripper_base_r_finger
+initial:  # Define initial robot poses per group
+  - group: l_manipulator
+    pose: l_manipulator_cut_point
+  - group: l_gripper
+    pose: l_gripper_open
+  - group: r_manipulator
+    pose: r_manipulator_cut_point
+  - group: r_gripper
+    pose: r_gripper_open
